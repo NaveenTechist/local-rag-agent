@@ -1,0 +1,6 @@
+
+.env
+__pycache__/
+/datasets/
+/chroma_db/
+converted_data.txt
