@@ -12,9 +12,9 @@ import shutil
 # ----------------------------
 load_dotenv()
 
-COLLECTION_NAME = os.getenv("COLLECTION_NAME", "bank_collection")
-DATABASE_LOCATION = os.getenv("DATABASE_LOCATION", "chroma/")
-DATASET_FILE = os.getenv("DATASET_FILE", "converted_data.txt")
+COLLECTION_NAME = os.getenv("COLLECTION_NAME")
+DATABASE_LOCATION = os.getenv("DATABASE_LOCATION")
+DATASET_FILE = os.getenv("DATASET_FILE")
 
 # ----------------------------
 # Configure logging
@@ -29,7 +29,7 @@ logging.info("Starting Chroma ingestion process...")
 # Initialize embeddings
 # ----------------------------
 try:
-    embeddings = OllamaEmbeddings(model=os.getenv("EMBEDDING_MODEL", "mxbai-embed-large"))
+    embeddings = OllamaEmbeddings(model=os.getenv("EMBEDDING_MODEL"))
     logging.info("Ollama embeddings initialized ✅")
 except Exception as e:
     logging.error(f"Error initializing embeddings: {e}")
@@ -40,7 +40,8 @@ except Exception as e:
 # ----------------------------
 
 
-# REMOVE COMMENT AFTER CHANGE DB 
+#REMOVE COMMENT AFTER CHANGE DB 
+
 # if os.path.exists(DATABASE_LOCATION):
 #     logging.info(f"Removing existing ChromaDB at {DATABASE_LOCATION} ...")
 #     shutil.rmtree(DATABASE_LOCATION)

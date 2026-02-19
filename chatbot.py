@@ -69,17 +69,22 @@ Source: source_url
 
 
 # creating the retriever tool
-@tool
-def retrieve(query: str):
-    """Retrieve information related to a query."""
-    retrieved_docs = vector_store.similarity_search(query, k=2)
+@tool(description="Retrieve information from the vector store related to the query")
+def retrieve(query):
+    # check if query is dict, then extract the string
+    if isinstance(query, dict) and "value" in query:
+        query_str = query["value"]
+    else:
+        query_str = str(query)
+
+    retrieved_docs = vector_store.similarity_search(query_str, k=2)
 
     serialized = ""
-
     for doc in retrieved_docs:
         serialized += f"Source: {doc.metadata['source']}\nContent: {doc.page_content}\n\n"
 
     return serialized
+
 
 # combining all tools
 tools = [retrieve]
