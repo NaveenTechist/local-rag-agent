@@ -44,3 +44,5 @@ Query Router
 - Ollama
 - LLaMA 3
 - Nomic Embed Text
+
+<img src="NYX.png" width="800">
