@@ -601,8 +601,9 @@ if user_question := st.chat_input("Ask about accounts, balances, branches, irreg
     if full_response:
         st.session_state.messages.append(AIMessage(full_response))
 
-        #new code 
-
+#___________________________________________________________________
+#NEW POLISHED CODE
+#___________________________________________________________________
 
 # import os
 # import re

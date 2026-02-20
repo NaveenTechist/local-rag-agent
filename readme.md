@@ -45,4 +45,4 @@ Query Router
 - LLaMA 3
 - Nomic Embed Text
 
-<img src="NYX.png" width="800">
+<img src="NYX.png" style="border:2px solid #333; border-radius:8px; margin-top: 10px;" width="800">
